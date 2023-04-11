@@ -120,7 +120,8 @@ class TeacherController extends Controller
                     ->where('assign_supervisors.supervisor_id','=',$teacher_id)
                     ->join('users','assign_supervisors.supervisor_id','=','users.id')
                     ->join('groups','assign_supervisors.owner_id','=','groups.id')
-                    ->select('assign_supervisors.*','users.teacher_id as teacher_id','users.name as teacher_name','groups.student_id as student_id','groups.member_name as member_name','groups.member_id as member_id')
+                    // ->join('users','assign_supervisors.owner_id','=','users.id')
+                    ->select('assign_supervisors.*','users.*','users.teacher_id as teacher_id','users.name as teacher_name','groups.member_name as member_name','groups.member_id as member_id')
                     ->get();
         if($data && $data->count()>0 ){
             return response()->json([
@@ -155,3 +156,4 @@ class TeacherController extends Controller
         }
        }
 }
+

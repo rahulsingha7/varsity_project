@@ -64,5 +64,7 @@ Route::post('project-list-delete/{id}',[TeacherController::class,'projectListDel
 
 //Student
 Route::post('register-group',[StudentController::class,'registerGroup']);
+Route::post('group-list-delete/{id}',[StudentController::class,'deleteGroup']);
 Route::get('show-group-list',[StudentController::class,'groupList']);
-Route::get('show-assigned-project',[StudentController::class,'assignedProject']);
+Route::get('get-supervisor',[StudentController::class,'getSupervisor']);
+Route::get('show-assigned-project',[StudentController::class,'showAssignedProject']);

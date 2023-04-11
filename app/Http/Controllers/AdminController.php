@@ -60,8 +60,10 @@ class AdminController extends Controller
         $totalTeacherList = User::where('role','teacher')->where('active', 1)->get();
         return view('admin.pages.totalTeacher', compact('totalTeacherList'));
     }
-
-    //Session
+ //Session
+ public function createSession(){
+    return view('admin.pages.createSession');
+}
     public function storeSession(Request $request){
         $obj = new Session();
         $obj->session_name = $request->session_name;

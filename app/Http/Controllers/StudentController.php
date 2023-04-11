@@ -60,7 +60,65 @@ class StudentController extends Controller
             ]);
         }
     }
+    public function deleteGroup($id){
+        $data = Group::where('id','=',$id)
+        ->delete();
+if($data){
+return response()->json([
+    'status' => 'success',
+    'message' => 'Group Deleted successfully'
+]);
+}
+else{
+return response()->json([
+'status' => 'error',
+'message' => 'No data found'
+]);
+}
+    }
     public function assignedProject(){
         return view('student.pages.assignedProject');
+    }
+    public function getSupervisor(Request $request){
+        $student_id = $request->session()->get('userid');
+        $data = DB::table('assign_supervisors')
+        ->where('assign_projects.onwer_id','=',$student_id)
+        ->join('users','assign_supervisors.supervisor_id','=','users.id')
+        // ->join('groups','assign_supervisors.owner_id','=','groups.id')
+        ->select('assign_supervisors.*','users.*')
+                ->get();
+        if($data && $data->count()>0 ){
+        return response()->json([
+            'status' => 'success',
+            'data' => $data
+        ]);
+        }
+        else{
+        return response()->json([
+            'status' => 'error',
+            'message' => 'No data found'
+        ]);
+        }
+    }
+    public function showAssignedProject(){
+        $student_id = $request->session()->get('userid');
+        $data = DB::table('assign_projects')
+                    ->where('assign_projects.supervisor_id','=',$teacher_id)
+                    ->join('users','assign_supervisors.supervisor_id','=','users.id')
+                    // ->join('groups','assign_supervisors.owner_id','=','groups.id')
+                    ->select('assign_supervisors.*','users.teacher_id as teacher_id','users.name as teacher_name','groups.member_name as member_name','groups.member_id as member_id')
+                    ->get();
+        if($data && $data->count()>0 ){
+            return response()->json([
+                'status' => 'success',
+                'data' => $data
+            ]);
+        }
+        else{
+            return response()->json([
+                'status' => 'error',
+                'message' => 'No data found'
+            ]);
+        }
     }
 }

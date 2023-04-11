@@ -1,7 +1,6 @@
 @extends('admin.layouts.default')
 @section('abcd')
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">All Semester</h1>
 </div>
 <table class="table">
   <thead class="thead-light">

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('project_owner_id');
             $table->foreign('project_owner_id')->references('id')->on('assign_supervisors');
             $table->unsignedBigInteger('project_id');
-            $table->foreign('project_id')->references('id')->on('users');
+            $table->foreign('project_id')->references('id')->on('groups');
             $table->timestamps();
         });
     }

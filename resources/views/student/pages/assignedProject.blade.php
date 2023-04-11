@@ -24,12 +24,53 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 <script>
  $(document).ready(function() {
-            getAllGroups();
+            // getAllGroups();
+            // //get all semester
+            // function getAllGroups() {
+            //     var str = ""
+            //     $.ajax({
+            //         url: 'http://127.0.0.1:8000/api/show-group-list',
+            //         type: 'GET',
+            //         dataType: "json",
+            //         success: function(result) {
+            //             if (result.status == 'success') {
+            //                 var data = result.data;
+            //                 console.log(data);
+            //                 var lent = result.data.length;
+            //                 for(var i=0;i<lent;i++){
+            //                     var id = data[i].id;
+            //                     var student_name = data[i].student_name;
+            //                     var student_id= data[i].student_id;
+            //                     var member_name= data[i].member_name;
+            //                     var member_id= data[i].member_id;
+            //                     var parse_name = JSON.parse(member_name);
+            //                     var parse = JSON.parse(member_id);
+            //                     str += `<tr>
+            //                     <td>${id}</td>
+            //                     <td>${student_name}</td>
+            //                     <td>${student_id}</td>
+            //                     <td>${parse}</td>
+            //                     <td>${parse_name}</td>
+                                
+            //                   </tr>`
+                             
+            //                 }
+            //                 $("#t_data").append(str);
+            //             }  
+            //             else if (result.status == 'error') {
+            //                 str +=
+            //                     `<tr><td colspan="8" class="text-center">${result.message}</td></tr>`;
+            //                 $("#t_data").append(str);
+            //             }
+            //         }
+            //     });
+            // }
+            getSupervisor();
             //get all semester
-            function getAllGroups() {
+            function getSupervisor() {
                 var str = ""
                 $.ajax({
-                    url: 'http://127.0.0.1:8000/api/show-group-list',
+                    url: 'http://127.0.0.1:8000/api/get-supervisor',
                     type: 'GET',
                     dataType: "json",
                     success: function(result) {

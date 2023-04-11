@@ -1,7 +1,6 @@
 @extends('teacher.layouts.default')
 @section('abcd')
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">All Semester</h1>
 </div>
 <table class="table">
   <thead class="thead-light">
@@ -9,8 +8,6 @@
         <th>ID</th>
         <th>Supervisor Name</th>
         <th>Supervisor ID</th>
-        <th>Student Name</th>
-        <th>Student ID</th>
         <th>Group Member ID</th>
         <th>Group Member Name</th>
         <th>Assign Project</th>
@@ -52,8 +49,6 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
                                 str += `<tr>
                                 <td>${id}</td>
                                 <td>${teacher_name}</td>
-                                <td>${teacher_id}</td>
-                                <td>${teacher_id}</td>
                                 <td>${teacher_id}</td>
                                 <td>${parse}</td>
                                 <td>${parse_name}</td>
